@@ -1,0 +1,1 @@
+*/30 * * * *  bash /flight-analyser/python_for_cron.sh
