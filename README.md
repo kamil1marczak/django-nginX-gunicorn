@@ -4,8 +4,15 @@
 REQUIREMENTS: <br>
 git, nginX, docker, docker-compose, postgres, python3, django, cron, crontab <br>
 
+<h2> app diagram </h2>
 
-MANUAL: <br>
+![app diagram](city_weather.png)
+![Alt Text](url)
+
+<br> 
+
+
+<h2> instalation </h2> <br>
 
 1) install postgres:
 sudo apt-get install postgresql <br>
