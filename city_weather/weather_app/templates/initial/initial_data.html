@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+    <a href="initial_user"> initial user</a> <br><br>
+
+    this section manage deployment of initial dataset required for proper function of app <br>
+    secret admin password is requred <br>
+
+    {% if request.method == 'GET' %}
+
+        <form method="POST">
+
+            <h3>clickt to start proces (might take few minutes)</h3>
+            <input type="submit" value="Submit">
+            {% csrf_token %}
+        </form>
+
+
+
+
+
+    {% endif %}
+
+
+    {% if request.method == "POST" %}
+
+        <a href="initial_user"> initial user</a><br><br>
+
+        <br>
+        {% for check in table_creation_checklist %}
+        {{check }} <br>
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endblock %}

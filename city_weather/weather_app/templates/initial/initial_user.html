@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+    <a href="/initial_data">initial data</a><br><br>
+
+    this section manage user creator e <br>
+    secret admin password is requred <br>
+
+    {% if request.method == 'GET' %}
+
+        <form method="POST">
+
+            Set login: <input type="text" name="login"><br>
+            Set Password: <input type="password" name="password"><br>
+            <input type="submit" value="Submit">
+            {% csrf_token %}
+        </form>
+
+
+
+        <br><br>
+
+
+    {% endif %}
+
+
+    {% if request.method == "POST" %}
+        <br>
+
+        <a href="/initial_data">initial data</a><br><br>
+
+        {{ message }} <br>
+
+    {% endif %}
+
+
+{% endblock %}

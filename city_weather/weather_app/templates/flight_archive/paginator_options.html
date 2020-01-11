@@ -1,0 +1,34 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+
+    chose nr of records in table <br>
+<form>
+ <select name="paginator-selector">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="25">25</option>
+  <option value="50">50</option>
+</select>
+    <input type="submit" value="submit">
+    {% csrf_token %}
+    </form>
+
+    <br>
+<form>
+<input type="text" name="flights-archive-serch">
+</select>
+    <input type="submit" value="submit">
+    {% csrf_token %}
+    </form>
+
+   serch query : {{ flights_archive_serch }}
+
+    <br><br><br>
+
+    {% block paginator_selector %}{% endblock %}
+
+
+{% endblock %}
+
+
