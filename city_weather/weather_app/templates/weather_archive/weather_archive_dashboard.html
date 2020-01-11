@@ -1,0 +1,76 @@
+{% extends "weather_archive/paginator_options.html" %}
+{% block paginator_selector %}
+
+
+    <table>
+        <tr>
+            <th>last update daytime</th>
+
+            <th>weather temp</th>
+            <th>weather main</th>
+            <th>weather description</th>
+
+            <th>city name</th>
+            <th>city lat</th>
+            <th>city lon</th>
+            <th>country</th>
+
+
+        </tr>
+
+        {% for city_weather in  weather_all %}
+            <tr>
+
+                <td>{{ city_weather.last_update_timestamp }}</td>
+
+                <td>{{ city_weather.weather.weather_data.main.temp }} °C</td>
+                <td>{{ city_weather.weather.weather_data.weather.0.main }} </td>
+                <td>{{ city_weather.weather.weather_data.weather.0.description }} </td>
+
+
+                <td>{{ city_weather.city.name }}</td>
+                <td>{{ city_weather.city.latitude_deg }}</td>
+                <td>{{ city_weather.city.longitude_deg }}</td>
+                <td>{{ city_weather.city.country }}</td>
+
+            </tr>
+
+
+
+        {% endfor %}
+    </table> <br>
+
+
+    <div class="container2">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">  <!-- Jump to Previous Page -->
+                    {% if weather_all.has_previous %}
+                        <li class="previous"><a href="?page={{ weather_all.previous_page_number }}">
+                            <span aria-hidden="true"> < previous &nbsp;</span></a>
+                            {% else %}
+                        <li class="previous disabled"><a> </a>
+                    {% endif %}
+                    </li>
+                {% for page in weather_all.paginator.page_range %}
+                    {% if page == weather_all.number %}
+                        <li class="pg active"><a class="page_number" href="?page={{ page }}"> | {{ page }} |</a>
+                            {% else %}
+                        <li class="pg"><a class="page_number" href="?page={{ page }}"> | {{ page }} |</a>
+                    {% endif %}
+                {% endfor %}
+                <li class="page-item">  <!-- Jump to Next Page -->
+                    {% if weather_all.has_next %}
+                        <li class="previous"><a href="?page={{ weather_all.next_page_number }}">&nbsp;next page ></a>
+                        </li>
+                    {% else %}
+                        <li class="next disabled"><a> </a>
+                    {% endif %}
+                    </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+{% endblock %}

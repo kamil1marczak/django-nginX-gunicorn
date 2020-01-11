@@ -34,15 +34,12 @@ urlpatterns = [
 
     path('initial_user/', CreateUser.as_view()),
     path('initial_data/', InitialData.as_view()),
-    path('city_weather/<str:name>',  CityWeatherRender.as_view()),
+    path('city_weather/<str:name>/', CityWeatherRender.as_view()),
 
-    # path('airport_extendet_data_table/<str:iata>', AirportExtandedData.as_view()),
     path('airport_extendet_data_table/<str:lat>/<str:lon>/', WeatherData.as_view()),
-    # # path('test/<str:airport>/<str:data_type>/<str:status>/<str:isDelay>', Flight),
 
-    # path('flights_table/<str:airport>/<str:data_type>/<str:status>/<str:isDelay>', FlightsTableRender.as_view()),
-    # path('save_flights_archive/', SaveToFlightArchiveView.as_view()),
-    # path('flights_archive_dashboard/', ViewFlightArchive.as_view()),
+    path('save_weather_archive/', SaveToWeatherArchiveView.as_view()),
+    path('weather_archive_dashboard/', ViewWeatherArchive.as_view()),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

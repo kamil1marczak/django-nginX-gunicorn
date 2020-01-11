@@ -1,0 +1,40 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+
+    {% if city_selector %}
+        {{ city_selector }} has been saved
+    {% endif %}
+
+    <div>
+        <form method="post">
+
+            <label>
+                <b>input cities [name, country]</b>
+                <input type='text'
+                       placeholder='Name of city'
+                       class='DataList'
+                       data-min-length='3'
+                       list='city_list'
+                       name='city_list'
+                       id="city-selector"
+                       size="60">
+
+                <datalist id="city_list">
+                    {% for city in cities_data %}
+                        <option value={{ city.name }}>{{ city.name }} {{ city.country }}</option>
+                    {% endfor %}
+                </datalist>
+
+
+            </label><br>
+
+            <br><br>
+            <input type="submit" value="save to database">
+            {% csrf_token %}
+        </form>
+    </div>
+
+
+
+{% endblock %}

@@ -1,19 +1,9 @@
 import requests
 import json
 from city_weather.settings import *
+from weather_app.models import Cities, WeatherArchive
 
 
-# alternativeAIP
-# url = "https://community-open-weather-map.p.rapidapi.com/weather"
-#
-# querystring = {"lat": lat, "lon": lon, "id": "2172797", "units": "%22metric%22"}
-#
-# headers = {
-#     'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
-#     'x-rapidapi-key': "ce30d525famsh578de54863cebf1p1400a2jsn7201f44d01b2"
-# }
-# response = requests.request("GET", url, headers=headers, params=querystring)
-# weather_data = response.text
 
 class WeatherApi:
     @staticmethod
@@ -21,6 +11,7 @@ class WeatherApi:
 
 
         url = f"{API_weather}/data/2.5/weather?lat={lat}&lon={lon}&APPID={weather_api_key}&units=metric"
+        'api.openweathermap.org/data/2.5/weather?lat=10&lon=10&APPID=9edfa280cbd379c37c83410cea6bb2f8&units=metric'
         response = requests.request('GET', url)
 
         weather_data = json.loads(response.text)
@@ -45,6 +36,14 @@ class WeatherApi:
                 'weather_desc': weather_desc,
                 'weather_icon': weather_icon,
                 'weather_wind': weather_wind}
+
+    @staticmethod
+    def city_name_weather(name):
+        cities_data = Cities.objects.get(name=name)
+        lat = cities_data.latitude_deg
+        lon = cities_data.longitude_deg
+        weather_data_context = WeatherApi.weather_json_restructure(lat, lon)
+        return weather_data_context
 
 
 # exaple data from Weather API

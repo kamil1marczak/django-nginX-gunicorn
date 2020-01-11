@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 
-API_weather = 'api.openweathermap.org'
+API_weather = 'http://api.openweathermap.org'
 weather_api_key = '9edfa280cbd379c37c83410cea6bb2f8'
 
 import os
