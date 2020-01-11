@@ -6,7 +6,7 @@ git, nginX, docker, docker-compose, postgres, python3, django, cron, crontab <br
 
 <h2> app diagram </h2>
 
-![app diagram](city_weather.png)
+![app diagram](city_weather_diagram.png)
 ![Alt Text](url)
 
 <br> 
