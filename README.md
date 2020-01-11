@@ -1,38 +1,38 @@
 # django-nginX-gunicorn 
 
 
-REQUIREMENTS:
-git, nginX, docker, docker-compose, postgres, python3, django, cron, crontab
+REQUIREMENTS: <br>
+git, nginX, docker, docker-compose, postgres, python3, django, cron, crontab <br>
 
 
-MANUAL:
+MANUAL: <br>
 
 1) install postgres:
-sudo apt-get install postgresql
+sudo apt-get install postgresql <br>
 
-set up login and password in postgres
+set up login and password in postgres <br>
 
-in case you choose other while instaling postgress remember to change USER and PASSWORD in settings.py in DATABASES section
+in case you choose other while instaling postgress remember to change USER and PASSWORD in settings.py in DATABASES section <br>
 
-2) set up db name, engine, user, password, host and port for application in Dockerfile, default are:
+2) set up db name, engine, user, password, host and port for application in Dockerfile, default are: <br>
 
-ENV DB_NAME weather
-ENV ENGINE ***
-ENV DB_USER ***
-ENV DB_PASSWORD ***
-ENV HOST_ON_SERVER ***
-ENV PORT_ON_SERVER ***
+ENV DB_NAME weather <br>
+ENV ENGINE *** <br>
+ENV DB_USER *** <br>
+ENV DB_PASSWORD *** <br>
+ENV HOST_ON_SERVER *** <br>
+ENV PORT_ON_SERVER *** <br>
 
 
-3) create database in accordance to DB_NAME
+3) create database in accordance to DB_NAME <br>
 
 A) initial deployment and restructuring models:
-execute: initial_deployment.sh
+execute: initial_deployment.sh <br>
 
 choose superuser credentials, default are:
-ENV SUPERUSER ***
-ENV SU_PASSWORD ***
-ENV SU_EMAIL ***
+ENV SUPERUSER *** <br>
+ENV SU_PASSWORD *** <br>
+ENV SU_EMAIL *** <br>
 
 
 B) to run app:
@@ -45,13 +45,14 @@ Run the built container: docker-compose up -d
 C) to run stanalone script execute: python_for_cron.sh
 
 cron set up enter cron folder, to add crontab list, execute: crontab cron.txt
-to start set up cron: service cron start
-to stop cron: service cron stop
+to start set up cron: service cron start <br>
+to stop cron: service cron stop <br>
 to check if running:
 service cron status
 
+<br>
 
-** to add new users enter url path /initial_user/ or you can manage it from admin view /admin/
+** to add new users enter url path /initial_user/ or you can manage it from admin view /admin/ 
 (/admin/ have right to delete user from /initial_user/ you can only add one)
 
 
