@@ -16,11 +16,11 @@
         <nav>
             <a href="/" class="btn">home</a>
             {% if user.is_authenticated %}
-                <a href="/show_flights" class="btn">flight alerts</a>
+                <a href="/show_weather" class="btn">show weather</a>
                 {#            <a href="/settings" class="btn">settings</a>#}
                 <a href="/logout" class="btn">logout </a>
-                <a href="/flights_archive_dashboard" class="btn">flights archive </a>
-                <a href="/save_flights_archive/" class="btn">save to flights archive </a>
+                <a href="/weather_archive_dashboard" class="btn">weather archive </a>
+                <a href="/save_weather_archive/" class="btn">save to weather archive </a>
             {% else %}
                 <a href="/login" class="btn">login</a>
 

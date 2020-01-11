@@ -35,7 +35,7 @@
 
             <datalist id="city_list">
                 {% for city in cities_data %}
-                    <option value={{ city.name }}>{{ city.name }}</option>
+                    <option value={{ city.name }}>{{ city.name }} {{ city.country }}</option>
                 {% endfor %}
             </datalist>
 

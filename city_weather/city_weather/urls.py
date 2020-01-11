@@ -34,7 +34,7 @@ urlpatterns = [
 
     path('initial_user/', CreateUser.as_view()),
     path('initial_data/', InitialData.as_view()),
-    path('city_weather/<str:name>', CityWeatherRender.as_view()),
+    path('city_weather/<str:name>',  CityWeatherRender.as_view()),
 
     # path('airport_extendet_data_table/<str:iata>', AirportExtandedData.as_view()),
     path('airport_extendet_data_table/<str:lat>/<str:lon>/', WeatherData.as_view()),
