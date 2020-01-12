@@ -1,7 +1,7 @@
 import os
 import django
 
-os.environ['DJANGO_SETTINGS_MODULE'] = "flight_analyser.settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "core.settings"
 django.setup()
 
 from django.contrib.auth.models import User

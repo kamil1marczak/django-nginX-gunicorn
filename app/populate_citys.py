@@ -2,7 +2,7 @@ import os
 import django
 
 
-os.environ['DJANGO_SETTINGS_MODULE'] = "city_weather.settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "core.settings"
 django.setup()
 
 from weather_app.models import Countries

@@ -2,7 +2,7 @@ import os
 import django
 from urllib import request
 
-os.environ['DJANGO_SETTINGS_MODULE'] = "city_weather.settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "core.settings"
 django.setup()
 
 from weather_app.weather_archive import WeatherArchiveCreator
