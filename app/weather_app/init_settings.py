@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import connection
-from city_weather.settings import BASE_DIR
+from core.settings import BASE_DIR
 import os
 
 
