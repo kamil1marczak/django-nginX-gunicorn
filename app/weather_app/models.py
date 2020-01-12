@@ -5,7 +5,7 @@ from django.contrib.postgres.fields import JSONField
 
 
 class Cities(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     name = models.TextField(max_length=256, unique=True)
     latitude_deg = models.DecimalField(max_digits=50, decimal_places=15)
     longitude_deg = models.DecimalField(max_digits=50, decimal_places=15)
