@@ -46,9 +46,9 @@ ENV SU_EMAIL *** <br>
 <h4> B) to run app: </h4>
 choose SSL or no SSL mode, default is:
 ENV SSL_CHECK False
-
-Build code with docker compose: docker-compose build
-Run the built container: docker-compose up -d
+<br>
+Build code with docker compose: docker-compose build <br>
+Run the built container: docker-compose up -d 
 
 <h4> C) to run stanalone script </h4>
 
