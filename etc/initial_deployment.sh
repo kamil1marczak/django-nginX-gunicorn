@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build -t models_image_entrypoint/develop .
+docker build -f ./Dockerfile -t models_image_entrypoint/develop .
 docker stop models_container || true 
 
 
