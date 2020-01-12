@@ -10,7 +10,7 @@ services:
     command:
       bash -c "python3 /src/manage.py collectstatic --noinput && gunicorn --chdir src --bind :8000 city_weather.wsgi:application"
     env_file:
-      - etc/.env
+      - .env
 
 
 
