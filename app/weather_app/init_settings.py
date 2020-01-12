@@ -21,5 +21,5 @@ class TablePopulator:
 
     def city_list():
         with connection.cursor() as cursor1:
-            sql = open(os.path.join(BASE_DIR, 'SQL/cities.sql'), encoding='utf-8', errors='replace').read()
+            sql = open(os.path.join(BASE_DIR, 'SQL/cities_dataset.txt')).read()
             cursor1.execute(sql)
