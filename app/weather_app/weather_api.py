@@ -1,6 +1,6 @@
 import requests
 import json
-from city_weather.settings import *
+from core.settings import *
 from weather_app.models import Cities, WeatherArchive
 
 
