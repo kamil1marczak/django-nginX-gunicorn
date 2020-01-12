@@ -4,7 +4,7 @@ from django.shortcuts import render
 import json
 from datetime import datetime, timedelta
 from weather_app.weather_api import WeatherApi
-from weather_app.models import WeatherArchive,Cities
+from weather_app.models import WeatherArchive, Cities
 
 
 class WeatherArchiveCreator:

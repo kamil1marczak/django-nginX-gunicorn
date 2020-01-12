@@ -18,7 +18,6 @@ for i in target_data:
 
 
 
-
 # bash to set up script every 30 minutes:
 #     */30 * * * * python3 path/to/script >dev/null 2?&1
 # to check if running:

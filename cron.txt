@@ -1,1 +1,1 @@
-*/30 * * * *  bash //python_for_cron.sh
+*/30 * * * *  bash /etc/python_for_cron.sh
