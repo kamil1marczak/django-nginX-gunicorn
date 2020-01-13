@@ -3,6 +3,7 @@ import sqlalchemy as db
 from weather_app.weather_api import WeatherApi
 from datetime import datetime, timedelta
 
+
 class SqlAlchemyScript():
     def __init__(self):
         self.engine = db.create_engine(f'postgresql://{os.getenv("DB_USER", default="postgres")}:{os.getenv("DB_PASSWORD", default="coderslab")}@{os.getenv("HOST_ON_SERVER", default="127.0.0.1")}:{os.getenv("PORT_ON_SERVER", default="54321")}/{os.getenv("DB_NAME", default="weather")}')

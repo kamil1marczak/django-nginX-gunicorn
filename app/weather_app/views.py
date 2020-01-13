@@ -34,10 +34,21 @@ class CityWeatherMain(View):
             'cities_data':cities_data,
         })
 
+
+
 class CityWeatherRender(View):
+    @staticmethod
+    def city_name_weather(name):
+        cities_data = Cities.objects.get(name=name)
+        lat = cities_data.latitude_deg
+        lon = cities_data.longitude_deg
+        weather_data_context = WeatherApi.weather_json_restructure(lat, lon)
+        return weather_data_context
+
     @method_decorator(login_required)
     def get(self, request, name):
-        weather_data_context = WeatherApi.city_name_weather(name)
+
+        weather_data_context = CityWeatherRender.city_name_weather(name)
 
         return render(request, 'rendered_tables/weather_data.html',
                       context=weather_data_context)

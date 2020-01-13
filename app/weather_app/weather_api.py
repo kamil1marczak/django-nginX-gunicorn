@@ -1,7 +1,7 @@
 import requests
 import json
 from core.settings import *
-# from weather_app.models import Cities, WeatherArchive
+
 
 
 
@@ -37,13 +37,6 @@ class WeatherApi:
                 'weather_icon': weather_icon,
                 'weather_wind': weather_wind}
 
-    # @staticmethod
-    # def city_name_weather(name):
-    #     cities_data = Cities.objects.get(name=name)
-    #     lat = cities_data.latitude_deg
-    #     lon = cities_data.longitude_deg
-    #     weather_data_context = WeatherApi.weather_json_restructure(lat, lon)
-    #     return weather_data_context
 
 
 # exaple data from Weather API

@@ -5,25 +5,6 @@ from django.views import View
 from weather_app.init_settings import TablePopulator, UserManagement
 from weather_app.views_authentication import SuperUserCheck
 
-class InitialData(SuperUserCheck, View):
-
-    def get(self, request):
-        return render(request, 'initial/initial_data.html')
-
-    def post(self, request):
-        table_creation_checklist = []
-
-        # try:airports_list
-        TablePopulator.city_list()
-        # table_creation_checklist.append("airport list table created successfully")
-        # except:
-        #     table_creation_checklist.append("airport list table: error during creation ")
-
-
-
-        return render(request, 'initial/initial_data.html', context={'table_creation_checklist': table_creation_checklist
-
-                                                                     })
 
 class CreateUser(View):
     @method_decorator(login_required)

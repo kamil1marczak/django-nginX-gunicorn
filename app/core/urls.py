@@ -21,7 +21,7 @@ from weather_app.views_authentication import *
 
 from weather_app.init_settings import *
 from weather_app.weather_api import *
-from weather_app.views_initial import CreateUser, InitialData
+from weather_app.views_initial import CreateUser
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -33,12 +33,9 @@ urlpatterns = [
     path('show_weather/', CityWeatherMain.as_view()),
 
     path('initial_user/', CreateUser.as_view()),
-    path('initial_data/', InitialData.as_view()),
     path('city_weather/<str:name>/', CityWeatherRender.as_view()),
 
     path('airport_extendet_data_table/<str:lat>/<str:lon>/', WeatherData.as_view()),
-
-    path('save_weather_archive/', SaveToWeatherArchiveView.as_view()),
     path('weather_archive_dashboard/', ViewWeatherArchive.as_view()),
 
 
