@@ -12,7 +12,7 @@ git, docker, docker-compose, postgres, python3, cron, crontab <br>
 <br> 
 
 
-<h2> instalation </h2> <br>
+<h2> installation </h2> <br>
 
 <h3> create .env, populate it with env as presented in points below, than place file in main folder </h3>
 
@@ -24,7 +24,7 @@ set up login and password in postgres <br>
 in case you choose other while instaling postgress remember to change USER and PASSWORD in settings.py in DATABASES section <br>
 
 <H3> 2) set up db name, engine, user, password, host and port for application .env, </h3> <br> 
-default are: <br>
+as follows: <br>
 
 ENV DB_NAME weather <br>
 ENV ENGINE *** <br>
