@@ -1,4 +1,4 @@
-# city_weather_monorepo 
+# city weather monorepo 
 
 
 REQUIREMENTS: <br>
@@ -14,7 +14,7 @@ git, docker, docker-compose, postgres, python3, cron, crontab <br>
 
 <h2> instalation </h2> <br>
 
-1) create .env, populate it with env as presented in points below, than place file in main folder:
+<h3> create .env, populate it with env as presented in points below, than place file in main folder </h3>
 
 <h3> 1) install postgres: </h3>
 apt-get install postgresql <br>
