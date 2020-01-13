@@ -29,7 +29,7 @@ SECRET_KEY = 'rydhr8ptfc6pw*%fyajbun#fvz5i#p6)i$%f-^*t_$10d*_s-7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['172.105.75.249', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'])
 
 
 # Application definition
