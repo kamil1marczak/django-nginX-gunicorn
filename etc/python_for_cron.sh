@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd ../
 docker build -t cron_image_entrypoint/develop .
 docker stop prod_container_cron || true 
 
