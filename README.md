@@ -39,14 +39,14 @@ ENV PORT_ON_SERVER *** <br>
 <h4> A) initial deployment and restructuring models: </h4>
 execute: bash etc/initial_deployment.sh <br>
 
-choose superuser credentials, and write them in .env:
+choose superuser credentials, and write them in .env: <br>
 ENV SUPERUSER *** <br>
 ENV SU_PASSWORD *** <br>
 ENV SU_EMAIL *** <br>
 
 
 <h4> B) to run app: </h4>
-choose SSL or no SSL mode, wtite in .env as example:
+choose SSL or no SSL mode, wtite in .env as example: <br>
 ENV SSL_CHECK False
 <br>
 Build code with docker compose: docker-compose build <br>
