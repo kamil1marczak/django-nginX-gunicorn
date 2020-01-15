@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.postgres.fields import JSONField
+from django.contrib.auth.models import User
 
 
 
@@ -16,3 +17,9 @@ class WeatherArchive(models.Model):
     last_update_timestamp = models.DateTimeField()
     city = models.ForeignKey(Cities, to_field='name', on_delete=models.CASCADE)
     weather = JSONField()
+    user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE)
+
+class ApiKeys(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    api_key = models.IntegerField(default=0)
+    user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE)

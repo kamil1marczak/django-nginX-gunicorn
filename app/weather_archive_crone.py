@@ -2,6 +2,7 @@ import os
 import sqlalchemy as db
 from weather_app.weather_api import WeatherApi
 from datetime import datetime, timedelta
+import sys
 
 
 class SqlAlchemyScript():
@@ -14,34 +15,31 @@ class SqlAlchemyScript():
 
     def find_city(self, city):
         find_city_query = db.select([self.cities_table]).where(self.cities_table.columns.name == city)
-        ResultProxy = self.connection.execute(find_city_query)
-        ResultSet = ResultProxy.fetchall()[0]
-        return ResultSet
+        result_proxy = self.connection.execute(find_city_query)
+        result_set = result_proxy.fetchone()
+        return result_set
 
     def check_location_city(self, city):
-        ResultSet = SqlAlchemyScript().find_city(city)
-        latitude_deg = ResultSet[2]
-        longitude_deg =ResultSet[3]
+        result_set = self.find_city(city)
+        latitude_deg = result_set[2]
+        longitude_deg =result_set[3]
         return latitude_deg, longitude_deg
 
     def find_weather_archive(self, city):
         find_weather_archive_query = db.select([self.weather_archive_table]).where(self.weather_archive_table.columns.city_id == city)
-        ResultProxy = self.connection.execute(find_weather_archive_query)
-        ResultSet = ResultProxy.fetchall
-        return ResultSet
+        result_proxy = self.connection.execute(find_weather_archive_query)
+        result_set = result_proxy.fetchone
+        return result_set
 
 
     def insert_weather_data(self, city):
-
-        latitude_deg, longitude_deg = SqlAlchemyScript().check_location_city(city)
+        latitude_deg, longitude_deg = self.check_location_city(city)
         weather_data_context = WeatherApi.weather_json_restructure(latitude_deg, longitude_deg)
         last_update_timestamp = datetime.now() + timedelta(hours=1)
-        # city = SqlAlchemyScript().find_city('Warsaw')
-
         save_weather_query = db.insert(self.weather_archive_table).values(last_update_timestamp=last_update_timestamp, weather=weather_data_context, city_id=city)
         ResultProxy = self.connection.execute(save_weather_query)
-
         return ResultProxy
 
-SqlAlchemyScript().insert_weather_data('Warsaw')
+if __name__ == "__main__":
+    SqlAlchemyScript().insert_weather_data(sys.argv[1])
 

@@ -4,17 +4,17 @@ from django.contrib.auth.decorators import login_required
 from django.views import View
 from weather_app.init_settings import TablePopulator, UserManagement
 from weather_app.views_authentication import SuperUserCheck
+from django.contrib.auth.models import User
 
 
 class CreateUser(View):
-    @method_decorator(login_required)
+
     def get(self, request):
 
         return render(request, 'initial/initial_user.html', context={
 
         })
 
-    @method_decorator(login_required)
     def post(self, request):
         login = request.POST.get('login')
         email = request.POST.get('email')

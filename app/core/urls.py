@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from weather_app.views import *
 from weather_app.views_authentication import *
 
@@ -25,18 +25,27 @@ from weather_app.views_initial import CreateUser
 from django.conf import settings
 from django.conf.urls.static import static
 
+# from rest_framework import routers
+#
+# router = routers.DefaultRouter()
+# router.register(r'users', UserViewSet)
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    path('', IndexView.as_view(), name='dashboard'),
-    path('show_weather/', CityWeatherMain.as_view()),
+                  path('admin/', admin.site.urls),
+                  path('login/', LoginView.as_view(), name='login'),
+                  path('logout/', LogoutView.as_view(), name='logout'),
+                  path('', IndexView.as_view(), name='dashboard'),
+                  path('show_weather/', CityWeatherMain.as_view()),
 
-    path('initial_user/', CreateUser.as_view()),
-    path('city_weather/<str:name>/', CityWeatherRender.as_view()),
+                  path('sign_up/', CreateUser.as_view()),
+                  path('city_weather/<str:name>/', CityWeatherRender.as_view()),
 
-    path('airport_extendet_data_table/<str:lat>/<str:lon>/', WeatherData.as_view()),
-    path('weather_archive_dashboard/', ViewWeatherArchive.as_view()),
+                  path('airport_extendet_data_table/<str:lat>/<str:lon>/', WeatherData.as_view()),
+                  path('weather_archive_dashboard/', ViewWeatherArchive.as_view()),
+                  # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+                  path('city_api/<str:city_name>/', CitiesView.as_view()),
+                  path('weather_archive_api/<int:api_key>/', WeatherArchiveView.as_view()),
+                  path('weather_now_api/<str:city_name>/<int:api_key>', WeatherNowView.as_view()),
+                  path('save_weather_archive/', SaveToWeatherArchiveView.as_view())
 
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

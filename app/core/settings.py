@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-
 API_weather = 'http://api.openweathermap.org'
 weather_api_key = '9edfa280cbd379c37c83410cea6bb2f8'
 
@@ -18,7 +17,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -31,7 +29,6 @@ DEBUG = os.getenv('DEBUG', default=True)
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'])
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'weather_app'
+    'weather_app',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -74,13 +72,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'NAME': os.getenv('DB_NAME', default='weather'),
+        'NAME': os.getenv('DB_NAME', default='weather_1'),
         'ENGINE': os.getenv('ENGINE', default='django.db.backends.postgresql'),
         'USER': os.getenv('DB_USER', default='postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', default='coderslab'),
@@ -88,7 +85,6 @@ DATABASES = {
         'PORT': os.getenv('PORT_ON_SERVER', default='54321'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -108,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -121,7 +116,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
