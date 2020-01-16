@@ -1,7 +1,7 @@
 
 $(() => {
 
-    let renderButton = $('#check_weather')
+    let renderButton = $('.check_weather')
     let weatherCell = $('#weather-table')
 
     renderButton.on('click', () => {

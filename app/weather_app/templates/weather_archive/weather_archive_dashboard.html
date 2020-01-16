@@ -23,9 +23,9 @@
 
                 <td>{{ city_weather.last_update_timestamp }}</td>
 
-                <td>{{ city_weather.weather.weather_data.main.temp }} °C</td>
-                <td>{{ city_weather.weather.weather_data.weather.0.main }} </td>
-                <td>{{ city_weather.weather.weather_data.weather.0.description }} </td>
+                <td>{{ city_weather.weather.main.temp }} °C</td>
+                <td>{{ city_weather.weather.weather.0.main }} </td>
+                <td>{{ city_weather.weather.weather.0.description }} </td>
 
 
                 <td>{{ city_weather.city.name }}</td>
@@ -34,7 +34,6 @@
                 <td>{{ city_weather.city.country }}</td>
 
             </tr>
-
 
 
         {% endfor %}

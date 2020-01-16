@@ -10,46 +10,53 @@
 
 
 
-{#    <div style="border:2px solid darkgreen; border-radius: 10px">#}
-{#        <b>set up automatic refresh</b> <br>#}
-{#        <input type="text" id="interval_button"><br>#}
-{#        <button type="button" id="refresh_button">set up refresh every [] minutes</button>#}
-{#        <button type="button" id="refresh_now_button">refresh now</button>#}
-{#        <button type="button" id="stop_button">stop refreshing</button>#}
-{##}
-{#    </div>#}
+    {#    <div style="border:2px solid darkgreen; border-radius: 10px">#}
+    {#        <b>set up automatic refresh</b> <br>#}
+    {#        <input type="text" id="interval_button"><br>#}
+    {#        <button type="button" id="refresh_button">set up refresh every [] minutes</button>#}
+    {#        <button type="button" id="refresh_now_button">refresh now</button>#}
+    {#        <button type="button" id="stop_button">stop refreshing</button>#}
+    {##}
+    {#    </div>#}
 
 
 
     <div>
-        <label>
-            <b>input cities [name, country]</b>
-            <input type='text'
-                   placeholder='Name of city'
-                   class='DataList'
-                   data-min-length='3'
-                   list='city_list'
-                   name='city_list'
-                   id="city-selector"
-                   size="60">
+        <form method="post">
 
-            <datalist id="city_list">
-                {% for city in cities_data %}
-                    <option value={{ city.name }}>{{ city.name }} {{ city.country }}</option>
-                {% endfor %}
-            </datalist>
+            <label>
+                <b>input cities [name, country]</b>
+                <input type='text'
+                       placeholder='Name of city'
+                       class='DataList'
+                       data-min-length='3'
+                       list='city_list'
+                       name='city_list'
+                       id="city-selector"
+                       size="60">
+
+                <datalist id="city_list">
+                    {% for city in cities_data %}
+                        <option value={{ city.name }}>{{ city.name }} {{ city.country }}</option>
+                    {% endfor %}
+                </datalist>
 
 
-        </label><br>
+            </label><br>
 
-        <br><br>
-        <button type="button" id="check_weather">check city weather</button>
+            <br><br>
+            <button type="button" class="check_weather">check city weather</button> <br>
+            <input type="submit" value="save to database">
+            {% csrf_token %}
+        </form>
+
 
     </div>
     <br>
     <h4>city weather</h4>
 
     <table border=1 id='weather-table'></table>
+
 
 
 

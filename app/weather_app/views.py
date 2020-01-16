@@ -42,6 +42,16 @@ class CityWeatherMain(View):
             'cities_data':cities_data,
         })
 
+    @method_decorator(login_required)
+    def post(self, request):
+        city_selector = request.POST.get('city_list')
+        username = request.user.username
+        WeatherArchiveCreator.save_to_weather_archive(city_selector, username)
+
+        cities_data = Cities.objects.all()
+        return render(request, 'show_cities.html', context={
+            'cities_data': cities_data,
+        })
 
 
 class CityWeatherRender(View):
@@ -56,11 +66,10 @@ class CityWeatherRender(View):
     @method_decorator(login_required)
     def get(self, request, name):
 
-        weather_data_context = CityWeatherRender.city_name_weather(name)
+        weather_data_context = self.city_name_weather(name)
 
         return render(request, 'rendered_tables/weather_data.html',
                       context=weather_data_context)
-
 
 
 class SaveToWeatherArchiveView(View):

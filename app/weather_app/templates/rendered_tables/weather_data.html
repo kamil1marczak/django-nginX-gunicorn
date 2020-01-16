@@ -1,7 +1,7 @@
 <td colspan="6">
     <table>
         <tr>
-            <td collspan="1">temperature: {{weather_main.temp}} </td>
+            <td collspan="1">temperature: {{ weather_main.temp }} </td>
             <td collspan="1">preasure: {{ weather_main.pressure }}</td>
             <td collspan="1">temp_min: {{ weather_main.temp_min }}</td>
             <td collspan="1">temp_max: {{ weather_main.temp_max }}</td>
@@ -12,9 +12,11 @@
             <td>Wind speed: {{ weather_wind }}</td>
             <td collspan="1"> {{ weather_desc.0.main }}</td>
             <td collspan="1"> {{ weather_desc.0.description }}</td>
-            <td><img src={{ weather_icon }} ></td>
+            <td><img src={{ weather_icon }}></td>
         </tr>
     </table>
+
+
 </td>
 
 
