@@ -46,6 +46,6 @@ urlpatterns = [
                   path('city_api/<str:city_name>/', CitiesView.as_view()),
                   path('weather_archive_api/<int:api_key>/', WeatherArchiveView.as_view()),
                   path('weather_now_api/<str:city_name>/<int:api_key>', WeatherNowView.as_view()),
-                  # path('save_weather_archive/', SaveToWeatherArchiveView.as_view())
+
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
