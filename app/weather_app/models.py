@@ -23,3 +23,4 @@ class ApiKeys(models.Model):
     id = models.BigAutoField(primary_key=True)
     api_key = models.IntegerField(default=0)
     user = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE)
+

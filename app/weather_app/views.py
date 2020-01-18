@@ -55,8 +55,7 @@ class CityWeatherMain(View):
 
 
 class CityWeatherRender(View):
-    @staticmethod
-    def city_name_weather(name):
+    def city_name_weather(self, name):
         cities_data = Cities.objects.get(name=name)
         lat = cities_data.latitude_deg
         lon = cities_data.longitude_deg
