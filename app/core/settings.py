@@ -22,11 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+API_weather = 'http://api.openweathermap.org'
+weather_api_key = '9edfa280cbd379c37c83410cea6bb2f8'
+SECRET_KEY = 'rydhr8ptfc6pw*%fyajbun#fvz5i#p6)i$%f-^*t_$10d*_s-7'
 
-
-API_weather = os.getenv('WEATHER_API_PAGE')
-weather_api_key = os.getenv('API_KEY')
-SECRET_KEY = os.getenv('SECRET_KEY')
+# API_weather = os.getenv('WEATHER_API_PAGE')
+# weather_api_key = os.getenv('API_KEY')
+# SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', default=True)
