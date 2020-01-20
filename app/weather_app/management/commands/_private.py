@@ -10,7 +10,7 @@ def populate_cities():
         pass
     else:
         with connection.cursor() as cursor1:
-            sql = open(os.path.join(BASE_DIR, 'SQL/cities_dataset.sql')).read()
+            sql = open(os.path.join(os.getenv('BASE_DIR', default='os.path.dirname(BASE_DIR)'), 'etc/SQL/cities_dataset.sql')).read()
             cursor1.execute(sql)
 
 def create_super_user():

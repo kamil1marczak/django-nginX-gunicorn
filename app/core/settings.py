@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': os.getenv('DB_NAME', default='weather_1'),
+        'NAME': os.getenv('DB_NAME', default='weather'),
         'ENGINE': os.getenv('ENGINE', default='django.db.backends.postgresql'),
         'USER': os.getenv('DB_USER', default='postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', default='coderslab'),
